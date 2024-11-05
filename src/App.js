@@ -36,25 +36,26 @@ function App() {
   };
 
   const validate = (event) => {
-      event.preventDefault();
-      const u = unameRef.current.value;
-      const p = pwdRef.current.value;
-      const storedUser = localStorage.getItem(u);
+    event.preventDefault();
+    const u = unameRef.current.value;
+    const p = pwdRef.current.value;
+    const storedUser = localStorage.getItem(u);
 
-      if (storedUser) {
-          const user = JSON.parse(storedUser);
-          if (u === user.userName && p === user.password) {
-              alert("Login Successful");
-              setError('');  // Clear error message on successful login
-              setTimeout(() => window.location.href = "index.html", 500);
-          } else {
-              setError("Invalid Username or Password");
-          }
-      } else {
-          setError("User does not exist");
-          alert("User not found, please sign up.");
-      }
-  };
+    if (storedUser) {
+        const user = JSON.parse(storedUser);
+        if (u === user.userName && p === user.password) {
+            alert("Login Successful");
+            setError(''); // Clear error message on successful login
+            setTimeout(() => window.location.href = "https://aryansinghal207.github.io/E-commerce-Electronics-/", 500);
+        } else {
+            setError("Invalid Username or Password");
+        }
+    } else {
+        setError("User does not exist");
+        alert("User not found, please sign up.");
+    }
+};
+
 
     return (
         <div className={`container ${isRightPanelActive ? 'right-panel-active' : ''}`} id="container">
